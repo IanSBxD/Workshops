@@ -1,0 +1,222 @@
+        /* Variáveis de Cores e Fontes */
+        :root {
+            --bg-color: #161616;
+            --panel-bg: #0d0d0d;
+            --card-bg: #141414;
+            --neon-green: #00ff41;
+            --text-white: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--neon-green);
+            font-family: var(--font-mono);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1rem;
+            min-height: 100vh;
+        }
+
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            color: var(--text-white);
+            font-family: sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            background-color: #333;
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 2px;
+        }
+
+        .subtitle {
+            color: var(--neon-green);
+            font-size: 0.9rem;
+        }
+
+        /* Container Principal */
+        main {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .panel {
+            border: 1px solid var(--neon-green);
+            background-color: var(--panel-bg);
+            border-radius: 4px;
+            padding: 2rem;
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .dashed-line {
+            border: none;
+            border-top: 1px dashed var(--neon-green);
+            margin-bottom: 2rem;
+            opacity: 0.7;
+        }
+
+        /* Grid de Cards */
+/* ----- LAYOUT DA GRID (O PAI) ----- */
+        .grid {
+            display: flex !important;
+            flex-direction: row; /* Força a ficar lado a lado */
+            flex-wrap: wrap; /* Permite quebrar pra linha de baixo se passar de 3 */
+            justify-content: center; /* Centraliza quando tem só 1 ou 2 */
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        /* ----- ESTRUTURA DO CARD (OS FILHOS) ----- */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #2a2a2a;
+            border-radius: 4px;
+            padding: 1.5rem;
+            box-sizing: border-box; 
+            flex: 0 0 calc(33.333% - 1.5rem); 
+            min-width: 230px; 
+            
+            /* --- NOVA LINHA --- */
+            height: 180px; /* Trava a altura para todos ficarem rigorosamente iguais */
+            
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            display: grid;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            border-color: var(--neon-green);
+        }
+
+        /* ----- FRENTE E VERSO (ANIMAÇÃO SUAVE) ----- */
+        .card-frente, .card-verso {
+            /* Coloca as duas divs exatamente no mesmo quadrado */
+            grid-area: 1 / 1; 
+            
+            /* Anima a transição de invisível para visível em 0.4 segundos */
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        /* Estado Inicial do Verso (Invisível) */
+        .card-verso {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #ccc;
+            
+            /* --- NOVAS LINHAS --- */
+            overflow-y: auto; /* Cria a barra de rolagem vertical apenas se o texto for muito grande */
+            padding-right: 5px; /* Afasta o texto da barra de rolagem */
+        }
+
+        /* Quando clicar (Classe .ativa entra em cena): Oculta a Frente com Fade Out */
+        .card.ativa .card-frente {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* Quando clicar (Classe .ativa entra em cena): Revela o Verso com Fade In */
+        .card.ativa .card-verso {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .card h3 {
+            color: var(--text-white);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .card .date {
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+/* ----- ESTILO DA BARRA DE ROLAGEM DO VERSO ----- */
+        .card-verso::-webkit-scrollbar {
+            width: 4px; /* Deixa a barra bem fininha */
+        }
+
+        .card-verso::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3); /* Fundo da trilha bem discreto */
+            border-radius: 4px;
+        }
+
+        .card-verso::-webkit-scrollbar-thumb {
+            background: var(--neon-green); /* Usa a sua variável verde neon */
+            border-radius: 4px;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            color: var(--neon-green);
+            text-decoration: none;
+            border: 1px solid var(--neon-green);
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+            transition: all 0.2s ease-in-out;
+            align-self: flex-start;
+        }
+
+        .btn:hover {
+            background-color: var(--neon-green);
+            color: var(--bg-color);
+        }
+
+        /* Seção Flex 2.0 */
+        .flex-text {
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Rodapé */
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        /* Responsividade para Celulares */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }

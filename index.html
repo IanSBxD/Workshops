@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity School - Rede Alternativa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">IN INFINITY SCHOOL</div>
+        <p class="subtitle">[ Links de Inscrições | Workshops Presenciais | Acesso Livre ]</p>
+    </header>
+
+    <main>
+        <section class="panel">
+            <div class="panel-header">
+                <span>📡</span> AULAS PRESENCIAIS
+            </div>
+            <hr class="dashed-line">
+            
+            <div class="grid">
+
+                <div class="card" onclick="mostrarDescricao(this)" onmouseleave="esconderDescricao(this)">
+                    
+                    <div class="card-frente">
+                        <h3>Cybersegurança na Prática</h3>
+                        <p class="date">06 de junho · 09:00 - 11:00</p>
+                        
+                        <a href="https://forms.gle/GAzSbwH2mnrgYiTA8" class="btn" target="_blank" onclick="event.stopPropagation()">Acessar Inscrição</a>
+                    </div>
+                    
+                    <div class="card-verso">
+                        <p>No workshop Cybersegurança na Prática, você vai aprender os fundamentos da segurança digital e entender como proteger dados, contas e sistemas contra ataques virtuais. De forma prática e introdutória, vamos explorar temas como invasões, senhas seguras, engenharia social, redes, ferramentas de proteção e boas práticas utilizadas no mercado. Ideal para quem quer iniciar no universo da cibersegurança e descobrir como funciona uma das áreas mais promissoras da tecnologia.</p>
+                    </div>
+
+            </div>
+
+            <div class="card" onclick="mostrarDescricao(this)" onmouseleave="esconderDescricao(this)">
+                
+                <div class="card-frente">
+                    <h3>Impressão 3d na pratica</h3>
+                    <p class="date">06 de junho · 14:00 - 16:00</p>
+                    
+                    <a href="https://forms.gle/FKAhpT33RR3daUKm9" class="btn" target="_blank" onclick="event.stopPropagation()">Acessar Inscrição</a>
+                </div>
+                
+                <div class="card-verso">
+                    <p>No workshop IMPRESSÃO 3D na Prática, você vai aprender como transformar ideias em objetos reais utilizando modelagem e impressão 3D. De forma prática e acessível, vamos explorar o funcionamento das impressoras, tipos de materiais, preparação de arquivos e criação de peças para projetos criativos, tecnologia e empreendedorismo. Ideal para quem quer dar os primeiros passos no universo da fabricação digital e entender como a impressão 3D está revolucionando o mercado.</p>
+                </div>
+                
+            </div>
+
+        </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <span>🚀</span> FLEX 2.0 — ACESSO AO ARQUIVO
+            </div>
+            <hr class="dashed-line">
+            <p class="flex-text">Modelo híbrido. Aulas personalizadas. Ritmo definido por você.</p>
+            <a href="SEU_LINK_AQUI" class="btn" target="_blank">baixar material completo</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>infinity underground network © | sistema alternativo de divulgação estudantil</p>
+    </footer>
+    <script>
+        // Adiciona a classe que mostra a descrição
+        function mostrarDescricao(cardClicado) {
+            cardClicado.classList.add('ativa');
+        }
+
+        // Remove a classe quando o mouse sai de cima do card
+        function esconderDescricao(cardClicado) {
+            cardClicado.classList.remove('ativa');
+        }
+    </script>
+
+</body>
+</html>
