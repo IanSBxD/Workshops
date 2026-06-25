@@ -83,10 +83,8 @@
         /* Grid de Cards */
 /* ----- LAYOUT DA GRID (O PAI) ----- */
         .grid {
-            display: flex !important;
-            flex-direction: row; /* Força a ficar lado a lado */
-            flex-wrap: wrap; /* Permite quebrar pra linha de baixo se passar de 3 */
-            justify-content: center; /* Centraliza quando tem só 1 ou 2 */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais sempre */
             gap: 1.5rem;
             width: 100%;
         }
@@ -98,11 +96,11 @@
             border-radius: 4px;
             padding: 1.5rem;
             box-sizing: border-box; 
-            flex: 0 0 calc(33.333% - 1.5rem); 
+            flex: 0 0 calc(34.333% - 1.5rem); 
             min-width: 230px; 
             
             /* --- NOVA LINHA --- */
-            height: 180px; /* Trava a altura para todos ficarem rigorosamente iguais */
+            height: 210px; /* Trava a altura para todos ficarem rigorosamente iguais */
             
             transition: transform 0.3s ease, border-color 0.3s ease;
             cursor: pointer;
@@ -124,7 +122,7 @@
 
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
             height: 100%;
         }
 
@@ -165,7 +163,8 @@
 
         .card .date {
             font-size: 0.8rem;
-            margin-bottom: 1.5rem;
+            margin-top: auto;   /* empurra data+botão para o fundo */
+            margin-bottom: 1.2rem; /* distância fixa entre data e botão */
         }
 
 /* ----- ESTILO DA BARRA DE ROLAGEM DO VERSO ----- */
