@@ -29,6 +29,15 @@
         header {
             text-align: center;
             margin-bottom: 3rem;
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+        }
+
+        .btn-aulas-online {
+            position: absolute;
+            top: 0;
+            right: 0;
         }
 
         .logo {
