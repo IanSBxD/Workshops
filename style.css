@@ -27,17 +27,30 @@
 
         /* Cabeçalho */
         header {
-            text-align: center;
             margin-bottom: 3rem;
             width: 100%;
             max-width: 900px;
-            position: relative;
+        }
+
+        .header-nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-center {
+            text-align: center;
+        }
+
+        .header-right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
         }
 
         .btn-aulas-online {
-            position: absolute;
-            top: 0;
-            right: 0;
+            white-space: nowrap;
         }
 
         .logo {
