@@ -3,109 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinity School - Rede Alternativa</title>
+    <title>Infinity School - Workshops Presenciais</title>
+    <meta name="description" content="Inscrições para workshops e aulas presenciais da Infinity School em Salvador e Recife.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <div class="scanline"></div>
+
     <header>
-        <div class="header-nav">
-            <div></div>
-            <div class="header-center">
-                <div class="logo">IN INFINITY SCHOOL</div>
-                <p class="subtitle">[ Links de Inscrições | Workshops Presenciais | Acesso Livre ]</p>
+        <div class="header-inner">
+            <div class="logo-block">
+                <span class="logo-prefix">// SYS</span>
+                <h1 class="logo">IN INFINITY SCHOOL</h1>
+                <p class="subtitle">&#x25B6; WORKSHOPS PRESENCIAIS &amp; INSCRIÇÕES ABERTAS</p>
             </div>
-            <div class="header-right">
-                <a href="https://pirate-in.vercel.app/" class="btn btn-aulas-online" target="_blank" id="btn-aulas-online"> -> Acessar Aulas Online <- </a>
+            <div class="header-badges">
+                <span class="badge">[ ACESSO LIVRE ]</span>
+                <span class="badge blink">[ VAGAS LIMITADAS ]</span>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="panel">
-            <div class="panel-header">
-                <span>📡</span> AULAS PRESENCIAIS
+
+        <!-- ABAS DE CIDADE -->
+        <div class="tabs-container">
+            <div class="tabs" role="tablist">
+                <button class="tab active" id="tab-salvador" role="tab" aria-selected="true" aria-controls="panel-salvador" onclick="switchTab('salvador')">
+                    SALVADOR
+                    <span class="tab-count">4 aulas</span>
+                </button>
+                <button class="tab" id="tab-recife" role="tab" aria-selected="false" aria-controls="panel-recife" onclick="switchTab('recife')">
+                    RECIFE
+                    <span class="tab-count">1 aula</span>
+                </button>
             </div>
-            <hr class="dashed-line">
-            
+        </div>
+
+        <!-- PAINEL SALVADOR -->
+        <section class="panel" id="panel-salvador" role="tabpanel" aria-labelledby="tab-salvador">
+            <div class="panel-meta">
+                <span class="meta-tag">Salvador, BA</span>
+                <span class="meta-tag">Julho 2026</span>
+            </div>
             <div class="grid">
 
-                <div class="card" onclick="mostrarDescricao(this)" onmouseleave="esconderDescricao(this)">
-                    
-                    <div class="card-frente">
-                        <h3>Audiovisual - Introdução à Captura de Vídeo</h3>
-                        <p class="date">18 de julho · 14:00 - 16:00</p>
-                        
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdwPhaP_mXSauSBeiXBY1ggBrgwUsHxqRv_QsdWHddy4cH7aQ/viewform?usp=header" class="btn" target="_blank" onclick="event.stopPropagation()">Acessar Inscrição</a>
+                <article class="card" id="card-audiovisual">
+                    <h3>Introdução à Captura de Vídeo</h3>
+                    <p class="card-desc">Primeiro contato com fundamentos da captura de vídeo, conceitos e técnicas da produção audiovisual.</p>
+                    <div class="card-bottom">
+                        <p class="date">18 de julho &middot; 14:00 – 16:00</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdwPhaP_mXSauSBeiXBY1ggBrgwUsHxqRv_QsdWHddy4cH7aQ/viewform?usp=header" class="btn" target="_blank" rel="noopener">Acessar Inscrição ›</a>
                     </div>
-                    
-                    <div class="card-verso">
-                        <p>O primeiro contato com os fundamentos da captura de vídeo, compreendendo os principais conceitos e técnicas utilizados na produção audiovisual.</p>
+                </article>
+
+                <article class="card" id="card-tattoo-concept">
+                    <h3>Tattoo Concept — Processo Criativo</h3>
+                    <p class="card-desc">Referências, composição e desenho. Da busca por referências à construção do desenho final, com exercícios práticos.</p>
+                    <div class="card-bottom">
+                        <p class="date">18 de julho &middot; 16:00 – 18:00</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBpAfwUsfvLiJoRszCjNlYg04-4BP_pA0FYx2JOlXRcYRH5A/viewform?usp=dialog" class="btn" target="_blank" rel="noopener">Acessar Inscrição ›</a>
                     </div>
+                </article>
+
+                <article class="card" id="card-fotografia">
+                    <h3>Fotografia Básica — Iniciando na Fotografia</h3>
+                    <p class="card-desc">Desenvolvido para quem deseja dar os primeiros passos no universo da fotografia de forma prática e introdutória.</p>
+                    <div class="card-bottom">
+                        <p class="date">25 de julho &middot; 14:00 – 16:00</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYkcii_QLPluXRl5qdLk4i_HFytesQJ-zITbkpxou4XFb6Vw/viewform?usp=dialog" class="btn" target="_blank" rel="noopener">Acessar Inscrição ›</a>
+                    </div>
+                </article>
+
+                <article class="card" id="card-tattoo-lab">
+                    <h3>Tattoo Lab — Fundamentos e Prática</h3>
+                    <p class="card-desc">Equipamentos, montagem de bancada e biossegurança. Experiência totalmente prática com contato direto no processo de tatuar.</p>
+                    <div class="card-bottom">
+                        <p class="date">25 de julho &middot; 16:00 – 18:00</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfREVraKoMWH3Qk7iOJ-u6gy251BddjQsSQOQ-qf1LU57IqNw/viewform?usp=dialog" class="btn" target="_blank" rel="noopener">Acessar Inscrição ›</a>
+                    </div>
+                </article>
 
             </div>
-
-            <div class="card" onclick="mostrarDescricao(this)" onmouseleave="esconderDescricao(this)">
-                
-                <div class="card-frente">
-                    <h3>Tattoo Concept - Processo criativo, referências, composição e desenho</h3>
-                    <p class="date">18 de julho · 16:00 - 18:00</p>
-                    
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBpAfwUsfvLiJoRszCjNlYg04-4BP_pA0FYx2JOlXRcYRH5A/viewform?usp=dialog" class="btn" target="_blank" onclick="event.stopPropagation()">Acessar Inscrição</a>
-                </div>
-                
-                <div class="card-verso">
-                    <p>Neste workshop, você aprenderá como nasce uma tatuagem: da busca por referências à construção do desenho final. A aula acontece de forma prática, com exercícios de desenho à mão, desenvolvimento de composição e adaptação da arte para tatuagem.</p>
-                </div>
-
-            </div>
-
-            <div class="card" onclick="mostrarDescricao(this)" onmouseleave="esconderDescricao(this)">
-                    
-                    <div class="card-frente">
-                        <h3>Fotografia Básica - Iniciando na fotografia</h3>
-                        <p class="date">25 de julho · 14:00 - 16:00</p>
-                        
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYkcii_QLPluXRl5qdLk4i_HFytesQJ-zITbkpxou4XFb6Vw/viewform?usp=dialog" class="btn" target="_blank" onclick="event.stopPropagation()">Acessar Inscrição</a>
-                    </div>
-                    
-                    <div class="card-verso">
-                        <p>Desenvolvido para quem deseja dar os primeiros passos no universo da fotografia. De forma prática e introdutória, os participantes conhecerão os conceitos fundamentais para capturar imagens.</p>
-                    </div>
-
-            </div>
-
-            <div class="card" onclick="mostrarDescricao(this)" onmouseleave="esconderDescricao(this)">
-                    
-                    <div class="card-frente">
-                        <h3>Tattoo Lab - Fundamentos,equipamentos, biossegurança e prática</h3>
-                        <p class="date">25 de julho · 16:00 - 18:00</p>
-                        
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfREVraKoMWH3Qk7iOJ-u6gy251BddjQsSQOQ-qf1LU57IqNw/viewform?usp=dialog" class="btn" target="_blank" onclick="event.stopPropagation()">Acessar Inscrição</a>
-                    </div>
-                    
-                    <div class="card-verso">
-                        <p>Uma imersão nos fundamentos da tatuagem profissional, abordando equipamentos, montagem de bancada e biossegurança. A experiência é totalmente prática, permitindo que todos os participantes tenham contato direto com o processo de tatuar e aplicar seus próprios desenhos</p>
-                    </div>
-
-            </div>
-
-        </div>
         </section>
+
+        <!-- PAINEL RECIFE -->
+        <section class="panel hidden" id="panel-recife" role="tabpanel" aria-labelledby="tab-recife">
+            <div class="panel-meta">
+                <span class="meta-tag">Recife, PE</span>
+                <span class="meta-tag">Julho 2026</span>
+            </div>
+            <div class="grid">
+
+                <article class="card" id="card-ia-pratica">
+                    <h3>Agentes de IA na Prática</h3>
+                    <p class="card-desc">No workshop Agentes de IA na Prática, você vai aprender como utilizar agentes de Inteligência Artificial para automatizar tarefas, otimizar processos e aumentar a produtividade no dia a dia. De forma prática e acessível, vamos explorar o funcionamento dos agentes de IA, como configurá-los, criar fluxos inteligentes e aplicá-los.</p>
+                    <div class="card-bottom">
+                        <p class="date">21 de julho &middot; 18:30 – 20:30</p>
+                        <a href="https://docs.google.com/forms/d/1GQZQaKyqMyAalTYj4RltRvntXbwF3yPHYk-fKYDn7cY/edit" class="btn" target="_blank" rel="noopener">Acessar Inscrição ›</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
     </main>
 
     <footer>
-        <p>infinity underground network © | sistema alternativo de divulgação estudantil</p>
+        <p>infinity underground network &copy; | sistema alternativo de divulgação estudantil</p>
     </footer>
-    <script>
-        // Adiciona a classe que mostra a descrição
-        function mostrarDescricao(cardClicado) {
-            cardClicado.classList.add('ativa');
-        }
 
-        // Remove a classe quando o mouse sai de cima do card
-        function esconderDescricao(cardClicado) {
-            cardClicado.classList.remove('ativa');
+    <script>
+        function switchTab(cidade) {
+            // Remove ativo de todas as abas e esconde todos os painéis
+            document.querySelectorAll('.tab').forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+            document.querySelectorAll('.panel').forEach(p => {
+                p.classList.add('hidden');
+            });
+
+            // Ativa a aba e painel selecionados
+            document.getElementById('tab-' + cidade).classList.add('active');
+            document.getElementById('tab-' + cidade).setAttribute('aria-selected', 'true');
+
+            const painel = document.getElementById('panel-' + cidade);
+            painel.classList.remove('hidden');
+            painel.classList.add('fade-in');
+            setTimeout(() => painel.classList.remove('fade-in'), 400);
         }
     </script>
 

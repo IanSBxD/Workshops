@@ -1,243 +1,393 @@
-        /* Variáveis de Cores e Fontes */
-        :root {
-            --bg-color: #161616;
-            --panel-bg: #0d0d0d;
-            --card-bg: #141414;
-            --neon-green: #00ff41;
-            --text-white: #ffffff;
-            --font-mono: 'Courier New', Courier, monospace;
-        }
+/* =====================================================
+   INFINITY SCHOOL — WORKSHOPS
+   Tema: Cyberpunk / Terminal Neon
+   ===================================================== */
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+/* Fontes e Variáveis */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap');
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--neon-green);
-            font-family: var(--font-mono);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 3rem 1rem;
-            min-height: 100vh;
-        }
+:root {
+    --bg:         #0c0c0c;
+    --surface:    #111111;
+    --card-bg:    #141414;
+    --border:     #1e1e1e;
+    --neon:       #00ff41;
+    --neon-dim:   rgba(0, 255, 65, 0.15);
+    --neon-glow:  0 0 8px rgba(0, 255, 65, 0.6), 0 0 20px rgba(0, 255, 65, 0.2);
+    --white:      #f0f0f0;
+    --muted:      #888;
+    --mono:       'Share Tech Mono', 'Courier New', monospace;
+    --display:    'Orbitron', sans-serif;
+    --radius:     6px;
+    --transition: 0.25s ease;
+}
 
-        /* Cabeçalho */
-        header {
-            margin-bottom: 3rem;
-            width: 100%;
-            max-width: 900px;
-        }
+/* Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        .header-nav {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            gap: 1rem;
-        }
+/* ===== EFEITO SCANLINE ===== */
+.scanline {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(0,0,0,0.07) 3px,
+        rgba(0,0,0,0.07) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+}
 
-        .header-center {
-            text-align: center;
-        }
+/* ===== BASE ===== */
+body {
+    background-color: var(--bg);
+    color: var(--neon);
+    font-family: var(--mono);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 1rem 4rem;
+}
 
-        .header-right {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
+/* ===== HEADER ===== */
+header {
+    width: 100%;
+    max-width: 860px;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--neon-dim);
+    padding-bottom: 2rem;
+}
 
-        .btn-aulas-online {
-            white-space: nowrap;
-        }
+.header-inner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
 
-        .logo {
-            color: var(--text-white);
-            font-family: sans-serif;
-            font-size: 1rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-            background-color: #333;
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 2px;
-        }
+.logo-prefix {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 0.4rem;
+    letter-spacing: 2px;
+}
 
-        .subtitle {
-            color: var(--neon-green);
-            font-size: 0.9rem;
-        }
+.logo {
+    font-family: var(--display);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 3px;
+    text-shadow: var(--neon-glow);
+    margin-bottom: 0.6rem;
+    line-height: 1;
+}
 
-        /* Container Principal */
-        main {
-            width: 100%;
-            max-width: 900px;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
+.subtitle {
+    font-size: 0.78rem;
+    color: var(--neon);
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
 
-        .panel {
-            border: 1px solid var(--neon-green);
-            background-color: var(--panel-bg);
-            border-radius: 4px;
-            padding: 2rem;
-        }
+.header-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+}
 
-        .panel-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
+.badge {
+    font-size: 0.7rem;
+    color: var(--neon);
+    border: 1px solid var(--neon-dim);
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
 
-        .dashed-line {
-            border: none;
-            border-top: 1px dashed var(--neon-green);
-            margin-bottom: 2rem;
-            opacity: 0.7;
-        }
+@keyframes blink-dot {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.2; }
+}
 
-        /* Grid de Cards */
-/* ----- LAYOUT DA GRID (O PAI) ----- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais sempre */
-            gap: 1.5rem;
-            width: 100%;
-        }
+.badge.blink::first-letter {
+    animation: blink-dot 1.2s infinite;
+}
 
-        /* ----- ESTRUTURA DO CARD (OS FILHOS) ----- */
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid #2a2a2a;
-            border-radius: 4px;
-            padding: 1.5rem;
-            box-sizing: border-box; 
-            flex: 0 0 calc(34.333% - 1.5rem); 
-            min-width: 230px; 
-            
-            /* --- NOVA LINHA --- */
-            height: 210px; /* Trava a altura para todos ficarem rigorosamente iguais */
-            
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            cursor: pointer;
-            display: grid;
-        }
+/* ===== ABAS ===== */
+main {
+    width: 100%;
+    max-width: 860px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
 
-        .card:hover {
-            transform: scale(1.03);
-            border-color: var(--neon-green);
-        }
+.tabs-container {
+    margin-bottom: 0;
+}
 
-        /* ----- FRENTE E VERSO (ANIMAÇÃO SUAVE) ----- */
-        .card-frente, .card-verso {
-            /* Coloca as duas divs exatamente no mesmo quadrado */
-            grid-area: 1 / 1; 
-            
-            /* Anima a transição de invisível para visível em 0.4 segundos */
-            transition: opacity 0.4s ease, visibility 0.4s ease;
+.tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--neon);
+}
 
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            height: 100%;
-        }
+.tab {
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--neon-dim);
+    border-bottom: none;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    padding: 0.7rem 1.8rem;
+    cursor: pointer;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: -1px;
+    border-radius: var(--radius) var(--radius) 0 0;
+}
 
-        /* Estado Inicial do Verso (Invisível) */
-        .card-verso {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            font-size: 0.85rem;
-            line-height: 1.5;
-            color: #ccc;
-            
-            /* --- NOVAS LINHAS --- */
-            overflow-y: auto; /* Cria a barra de rolagem vertical apenas se o texto for muito grande */
-            padding-right: 5px; /* Afasta o texto da barra de rolagem */
-        }
+.tab .tab-icon {
+    font-size: 0.6rem;
+    transition: color var(--transition);
+}
 
-        /* Quando clicar (Classe .ativa entra em cena): Oculta a Frente com Fade Out */
-        .card.ativa .card-frente {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
+.tab .tab-count {
+    font-size: 0.65rem;
+    opacity: 0.6;
+    margin-left: 0.3rem;
+}
 
-        /* Quando clicar (Classe .ativa entra em cena): Revela o Verso com Fade In */
-        .card.ativa .card-verso {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-        }
+.tab:hover {
+    color: var(--neon);
+    border-color: var(--neon-dim);
+    background: var(--neon-dim);
+}
 
-        .card h3 {
-            color: var(--text-white);
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-            font-weight: normal;
-        }
+.tab.active {
+    color: var(--neon);
+    background: var(--surface);
+    border-color: var(--neon);
+    text-shadow: 0 0 6px var(--neon);
+}
 
-        .card .date {
-            font-size: 0.8rem;
-            margin-top: auto;   /* empurra data+botão para o fundo */
-            margin-bottom: 1.2rem; /* distância fixa entre data e botão */
-        }
+.tab.active .tab-icon {
+    color: var(--neon);
+}
 
-/* ----- ESTILO DA BARRA DE ROLAGEM DO VERSO ----- */
-        .card-verso::-webkit-scrollbar {
-            width: 4px; /* Deixa a barra bem fininha */
-        }
+/* ===== PAINEL ===== */
+.panel {
+    background: var(--surface);
+    border: 1px solid var(--neon);
+    border-top: none;
+    border-radius: 0 var(--radius) var(--radius) var(--radius);
+    padding: 2rem;
+    margin-bottom: 0;
+}
 
-        .card-verso::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.3); /* Fundo da trilha bem discreto */
-            border-radius: 4px;
-        }
+.panel.hidden {
+    display: none;
+}
 
-        .card-verso::-webkit-scrollbar-thumb {
-            background: var(--neon-green); /* Usa a sua variável verde neon */
-            border-radius: 4px;
-        }
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
 
-        /* Botões */
-        .btn {
-            display: inline-block;
-            color: var(--neon-green);
-            text-decoration: none;
-            border: 1px solid var(--neon-green);
-            padding: 0.4rem 0.8rem;
-            font-size: 0.8rem;
-            transition: all 0.2s ease-in-out;
-            align-self: flex-start;
-        }
+.panel.fade-in {
+    animation: fade-in 0.35s ease forwards;
+}
 
-        .btn:hover {
-            background-color: var(--neon-green);
-            color: var(--bg-color);
-        }
+.panel-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
 
-        /* Seção Flex 2.0 */
-        .flex-text {
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-        }
+.meta-tag {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+}
 
-        /* Rodapé */
-        footer {
-            margin-top: 4rem;
-            text-align: center;
-            font-size: 0.75rem;
-            opacity: 0.8;
-        }
+/* ===== GRID DE CARDS ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+}
 
-        /* Responsividade para Celulares */
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
+/* ===== CARD ===== */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Linha de acento no topo do card */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--neon);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.card:hover {
+    border-color: rgba(0, 255, 65, 0.4);
+    box-shadow: 0 0 18px rgba(0, 255, 65, 0.08);
+    transform: translateY(-2px);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+
+.card h3 {
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: normal;
+    line-height: 1.4;
+}
+
+.card-desc {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.6;
+    /* Limite de 3 linhas: 3 × 1.6 × 0.78rem ≈ 3.74rem */
+    max-height: calc(1.6em * 3);
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* Scrollbar estilizada no tema neon */
+.card-desc::-webkit-scrollbar {
+    width: 3px;
+}
+
+.card-desc::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.card-desc::-webkit-scrollbar-thumb {
+    background: var(--neon-dim);
+    border-radius: 4px;
+}
+
+.card-desc::-webkit-scrollbar-thumb:hover {
+    background: var(--neon);
+}
+
+.card-bottom {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.date {
+    font-size: 0.75rem;
+    color: var(--neon);
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.date-icon {
+    font-size: 0.7rem;
+}
+
+/* ===== BOTÃO ===== */
+.btn {
+    display: inline-block;
+    color: var(--neon);
+    text-decoration: none;
+    border: 1px solid var(--neon);
+    padding: 0.35rem 0.9rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: all var(--transition);
+    white-space: nowrap;
+}
+
+.btn:hover {
+    background-color: var(--neon);
+    color: var(--bg);
+    box-shadow: var(--neon-glow);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--muted);
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-badges {
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .tab {
+        padding: 0.6rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    .card-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
