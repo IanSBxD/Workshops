@@ -60,7 +60,7 @@ body {
 /* ===== HEADER ===== */
 header {
     width: 100%;
-    max-width: 860px;
+    max-width: 1280px;
     margin-bottom: 2.5rem;
     border-bottom: 1px solid var(--neon-dim);
     padding-bottom: 2rem;
@@ -130,7 +130,7 @@ header {
 /* ===== ABAS ===== */
 main {
     width: 100%;
-    max-width: 860px;
+    max-width: 1280px;
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -235,7 +235,7 @@ main {
 /* ===== GRID DE CARDS ===== */
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.2rem;
 }
 
